@@ -17,7 +17,7 @@ paths:
       tags: []
       responses:
         '200':
-          description: User Found
+          description: Different response based on scenerio.
           content:
             application/json:
               schema:
