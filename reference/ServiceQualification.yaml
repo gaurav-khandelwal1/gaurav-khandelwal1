@@ -8,9 +8,9 @@ info:
     name: Gaurav
     email: gaurav.khandelwal@brightspeed.com
 servers:
-  - url: 'http://20.119.116.84/api/addressqualificationms'
+  - url: 'https://brightspeed-np-dev.apigee.net'
 paths:
-  /getQualificationAddress:
+  /dev-address-qualification:
     parameters: []
     get:
       summary: Service Avalibility
