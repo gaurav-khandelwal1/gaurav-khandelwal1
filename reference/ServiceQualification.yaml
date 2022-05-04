@@ -35,8 +35,28 @@ paths:
                     interval: ''
                 InValidAddress:
                   value:
+                    errorCode: 3003
+                    errorText: Invalid Address
+                    fullAddress: 910 FIRST ST Manteo NC 27954
+                    addressId: null
+                    latitude: null
+                    longitude: null
+                    brightSpeedFiberIndicator: Not available
+                    interval: ''
+                ExistingService:
+                  value:
                     errorCode: 3001
-                    errorText: Active Service Available
+                    errorText: Active service available
+                    fullAddress: 910 FIRST ST Manteo NC 27954
+                    addressId: null
+                    latitude: null
+                    longitude: null
+                    brightSpeedFiberIndicator: Not available
+                    interval: ''
+                ExistingInactiveService:
+                  value:
+                    errorCode: 3002
+                    errorText: Service is available but Inactive
                     fullAddress: 910 FIRST ST Manteo NC 27954
                     addressId: null
                     latitude: null
