@@ -8,9 +8,9 @@ info:
     name: Gaurav
     email: gaurav.khandelwal@brightspeed.com
 servers:
-  - url: 'http://localhost:3000'
+  - url: 'https://brightspeed-np-dev.apigee.net'
 paths:
-  /service-availability:
+  /dev-address-qualification:
     parameters: []
     get:
       summary: Service Avalibility
@@ -75,6 +75,10 @@ paths:
           in: query
           name: addressLine1
           description: Full address
+        - schema:
+            type: string
+          in: header
+          name: Authorization
     patch:
       summary: Update User Information
       operationId: patch-users-userId
