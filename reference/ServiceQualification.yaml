@@ -84,7 +84,7 @@ paths:
 components:
   schemas:
     User:
-      title: User
+      title: ServiceQualification
       type: object
       description: ''
       examples:
