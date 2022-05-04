@@ -86,7 +86,7 @@ components:
     User:
       title: ServiceQualification
       type: object
-      description: ''
+      description: Service Qualification query parameter
       examples:
         - errorCode: 0
           errorText: Success
