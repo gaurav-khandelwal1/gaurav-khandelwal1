@@ -38,13 +38,19 @@ paths:
           application/json:
             schema:
               type: object
-              properties: {}
-            examples:
-              example-1:
-                value:
+              properties:
+                orderType:
+                  type: string
+                serviceType:
+                  type: string
+                stateCode:
+                  type: string
+              x-examples:
+                example-1:
                   orderType: INSTALL
                   serviceType: DATA
                   stateCode: FL
+            examples: {}
 components:
   schemas:
     User:
