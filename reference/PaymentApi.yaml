@@ -50,7 +50,12 @@ paths:
                   orderType: INSTALL
                   serviceType: DATA
                   stateCode: FL
-            examples: {}
+            examples:
+              example-1:
+                value:
+                  orderType: string
+                  serviceType: string
+                  stateCode: string
           application/xml:
             schema:
               type: object
@@ -67,4 +72,17 @@ paths:
 components:
   schemas:
     User:
-      type: string
+      type: object
+      properties:
+        orderType:
+          type: string
+        serviceType:
+          type: string
+        stateCode:
+          type: string
+      x-examples:
+        example-1:
+          orderType: INSTALL
+          serviceType: DATA
+          stateCode: FL
+      title: Submit Order
