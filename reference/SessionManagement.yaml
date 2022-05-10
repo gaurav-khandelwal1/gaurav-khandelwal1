@@ -11,7 +11,7 @@ paths:
   getSessionId:
     parameters: []
     get:
-      summary: This API is used to generate session id
+      summary: SessionApi
       tags: []
       operationId: getSessionId
       description: This API is used to generate session id to track the user
