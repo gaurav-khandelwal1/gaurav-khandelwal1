@@ -32,17 +32,23 @@ paths:
           application/json:
             schema:
               type: object
-              properties: {}
+              properties:
+                orderType:
+                  type: string
+                serviceType:
+                  type: string
+                stateCode:
+                  type: string
+              x-examples:
+                example-1:
+                  orderType: INSTALL
+                  serviceType: DATA
+                  stateCode: FL
           application/xml:
             schema:
               type: object
               properties: {}
-        description: |-
-          {
-            "orderType": "INSTALL",
-            "serviceType": "DATA",
-            "stateCode": "FL"
-          }
+        description: ''
   '':
     parameters: []
 components:
