@@ -51,6 +51,52 @@ paths:
                   serviceType: DATA
                   stateCode: FL
             examples: {}
+        description: ''
+    post:
+      summary: ''
+      operationId: post-submitOrder
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  FL110000001:
+                    type: string
+                x-examples:
+                  example-1:
+                    FL110000001: string
+              examples:
+                example-1:
+                  value:
+                    FL110000001: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderType:
+                  type: string
+                serviceType:
+                  type: string
+                stateCode:
+                  type: string
+              x-examples:
+                example-1:
+                  orderType: INSTALL
+                  serviceType: DATA
+                  stateCode: FL
+            examples:
+              example-1:
+                value:
+                  orderType: string
+                  serviceType: string
+                  stateCode: string
 components:
   schemas:
     User:
