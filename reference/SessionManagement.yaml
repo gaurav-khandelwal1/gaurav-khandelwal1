@@ -13,6 +13,8 @@ paths:
     get:
       summary: This API is used to generate session id
       tags: []
+      operationId: getSessionId
+      description: This API is used to generate session id to track the user
       responses:
         '200':
           description: ''
@@ -20,34 +22,16 @@ paths:
             application/json:
               schema:
                 type: object
+                properties:
+                  sessionId:
+                    type: string
                 x-examples:
                   example-1:
-                    session: string
-                properties:
-                  session:
-                    type: string
+                    sessionId: 87872287-7d7d-8u8u-9d9s-7776789hjd8d
               examples:
-                sessionid:
+                example-1:
                   value:
                     sessionId: 87872287-7d7d-8u8u-9d9s-7776789hjd8d
-        '':
-          description: Give as session id
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  session:
-                    type: string
-                x-examples:
-                  example-1:
-                    session: string
-              examples:
-                sessionid:
-                  value:
-                    session: 87182711-3c9e-4f91-8bc1-333345g12b5g
-      operationId: getSessionId
-      description: This API is used to generate session id to track the user
 components:
   schemas:
     User:
