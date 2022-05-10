@@ -8,10 +8,10 @@ info:
 servers:
   - url: 'http://localhost:3000'
 paths:
-  getSessionId:
+  /getSessionId:
     parameters: []
     get:
-      summary: SessionApi
+      summary: Generate SessionId
       tags: []
       operationId: getSessionId
       description: This API is used to generate session id to track the user
@@ -22,12 +22,12 @@ paths:
             application/json:
               schema:
                 type: object
-                properties:
-                  sessionId:
-                    type: string
                 x-examples:
                   example-1:
                     sessionId: 87872287-7d7d-8u8u-9d9s-7776789hjd8d
+                properties:
+                  sessionId:
+                    type: string
               examples:
                 example-1:
                   value:
