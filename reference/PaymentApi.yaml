@@ -18,7 +18,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                type: object
+                properties:
+                  FL110000001:
+                    type: string
+                x-examples:
+                  example-1:
+                    FL110000001: string
               examples:
                 orderRefNumber:
                   value:
@@ -32,7 +38,19 @@ paths:
           application/json:
             schema:
               type: object
-              properties: {}
+              properties:
+                orderType:
+                  type: string
+                serviceType:
+                  type: string
+                stateCode:
+                  type: string
+              x-examples:
+                example-1:
+                  orderType: INSTALL
+                  serviceType: DATA
+                  stateCode: FL
+            examples: {}
           application/xml:
             schema:
               type: object
@@ -46,8 +64,6 @@ paths:
                     "stateCode": "FL"
                   }
         description: ''
-  '':
-    parameters: []
 components:
   schemas:
     User:
