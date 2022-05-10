@@ -1,0 +1,38 @@
+openapi: 3.1.0
+x-stoplight:
+  id: ys5yq9karz340
+info:
+  title: PaymentApi
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /submitOrder:
+    parameters: []
+    get:
+      summary: Generate Order Reference Id
+      tags: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                orderRefNumber:
+                  value:
+                    FL110000001: string
+        '500':
+          description: Internal Server Error
+      operationId: submitorder
+      description: This API is used to generate Order refernce number
+  /user: {}
+components:
+  schemas:
+    User:
+      title: User
+      description: ''
+      examples:
+        - FL110000001: string
+      type: string
