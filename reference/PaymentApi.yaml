@@ -33,18 +33,19 @@ paths:
             schema:
               type: object
               properties: {}
-        description: |
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+        description: |-
           {
             "orderType": "INSTALL",
             "serviceType": "DATA",
             "stateCode": "FL"
           }
-  /user: {}
+  '':
+    parameters: []
 components:
   schemas:
     User:
-      title: User
-      description: ''
-      examples:
-        - FL110000001: string
       type: string
