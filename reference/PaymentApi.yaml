@@ -33,31 +33,12 @@ paths:
           description: Internal Server Error
       operationId: submitorder
       description: This API is used to generate Order refernce number
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                orderType:
-                  type: string
-                serviceType:
-                  type: string
-                stateCode:
-                  type: string
-              x-examples:
-                example-1:
-                  orderType: INSTALL
-                  serviceType: DATA
-                  stateCode: FL
-            examples: {}
-        description: ''
     post:
-      summary: ''
+      summary: Generate Order Reference Id
       operationId: post-submitOrder
       responses:
         '200':
-          description: OK
+          description: Response give us Order reference number.
           content:
             application/json:
               schema:
@@ -95,6 +76,7 @@ paths:
                   orderType: string
                   serviceType: string
                   stateCode: string
+      description: This API is used to generate Order refernce number
 components:
   schemas:
     User:
