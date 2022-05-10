@@ -9,30 +9,6 @@ servers:
 paths:
   /submitOrder:
     parameters: []
-    get:
-      summary: Generate Order Reference Id
-      tags: []
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  FL110000001:
-                    type: string
-                x-examples:
-                  example-1:
-                    FL110000001: string
-              examples:
-                orderRefNumber:
-                  value:
-                    FL110000001: string
-        '500':
-          description: Internal Server Error
-      operationId: submitorder
-      description: This API is used to generate Order refernce number
     post:
       summary: Generate Order Reference Id
       operationId: post-submitOrder
