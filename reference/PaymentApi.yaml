@@ -33,6 +33,18 @@ paths:
           description: Internal Server Error
       operationId: submitorder
       description: This API is used to generate Order refernce number
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+            examples:
+              example-1:
+                value:
+                  orderType: INSTALL
+                  serviceType: DATA
+                  stateCode: FL
 components:
   schemas:
     User:
