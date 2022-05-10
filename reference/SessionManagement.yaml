@@ -11,7 +11,7 @@ paths:
   getSessionId:
     parameters: []
     get:
-      summary: Get User Info by User ID
+      summary: This API is used to generate session id
       tags: []
       responses:
         '200':
@@ -29,9 +29,7 @@ paths:
               examples:
                 sessionid:
                   value:
-                    session: 87872287-7d7d-8u8u-9d9s-7776789hjd8d
-        '404':
-          description: User Not Found
+                    sessionId: 87872287-7d7d-8u8u-9d9s-7776789hjd8d
         '':
           description: Give as session id
           content:
@@ -48,8 +46,8 @@ paths:
                 sessionid:
                   value:
                     session: 87182711-3c9e-4f91-8bc1-333345g12b5g
-      operationId: get-users-userId
-      description: 'This API is used create session id fro tracking user action. '
+      operationId: getSessionId
+      description: This API is used to generate session id to track the user
 components:
   schemas:
     User:
