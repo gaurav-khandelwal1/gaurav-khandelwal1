@@ -35,17 +35,129 @@ paths:
             schema:
               type: object
               properties:
-                orderType:
+                externalId:
                   type: string
-                serviceType:
+                '@type':
                   type: string
-                stateCode:
+                orderDate:
                   type: string
+                requestedCompletionDate:
+                  type: string
+                requestedStartDate:
+                  type: string
+                AppointmentDate:
+                  type: string
+                AppointmentWindow:
+                  type: string
+                note:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      text:
+                        type: string
+                productOrderItem:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      action:
+                        type: string
+                      product:
+                        type: object
+                        properties:
+                          '@type':
+                            type: string
+                          productCharacteristic:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                name:
+                                  type: string
+                                value:
+                                  type: string
+                          productSpecification:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              '@type':
+                                type: string
+                          location:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              name:
+                                type: string
+                              '@type':
+                                type: string
+                      productOffering:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                          name:
+                            type: string
+                      '@type':
+                        type: string
+                relatedParty:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      name:
+                        type: string
+                      email:
+                        type: string
+                      phone:
+                        type: string
+                      '@type':
+                        type: string
+                      '@referredType':
+                        type: string
               x-examples:
                 example-1:
-                  orderType: INSTALL
-                  serviceType: DATA
-                  stateCode: FL
+                  externalId: NC1100000002
+                  '@type': ProductOrder
+                  orderDate: '2022-04-20T09:37:40.508Z'
+                  requestedCompletionDate: '2021-05-02T08:13:59.506Z'
+                  requestedStartDate: '2020-05-03T08:13:59.506Z'
+                  AppointmentDate: '2022-04-26'
+                  AppointmentWindow: '8:00AMto12:00PM'
+                  note:
+                    - text: Place holder to send Customer/Sales notes to order fulfillment
+                  productOrderItem:
+                    - id: '100'
+                      action: add
+                      product:
+                        '@type': Product
+                        productCharacteristic:
+                          - name: Speed
+                            value: 200M
+                        productSpecification:
+                          id: Spec-a123-1232
+                          '@type': ProductSpecificationRef
+                        location:
+                          id: '106790'
+                          name: '402 Sir Walter Raleigh St, Manteo, NC 27954, USA'
+                          '@type': location
+                      productOffering:
+                        id: Offer-a123-1232
+                        name: Internet Service 200M
+                      '@type': ProductOrderItem
+                  relatedParty:
+                    - id: AA2220001
+                      name: John Doe
+                      email: abc1@customer.com
+                      phone: 111-111-4567
+                      '@type': RelatedParty
+                      '@referredType': Consumer
             examples:
               example-1:
                 value:
@@ -58,19 +170,126 @@ components:
     User:
       type: object
       properties:
-        orderType:
+        externalId:
           type: string
-        serviceType:
+        '@type':
           type: string
-        stateCode:
+        orderDate:
           type: string
+        requestedCompletionDate:
+          type: string
+        requestedStartDate:
+          type: string
+        AppointmentDate:
+          type: string
+        AppointmentWindow:
+          type: string
+        note:
+          type: array
+          items:
+            type: object
+            properties:
+              text:
+                type: string
+        productOrderItem:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              action:
+                type: string
+              product:
+                type: object
+                properties:
+                  '@type':
+                    type: string
+                  productCharacteristic:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        value:
+                          type: string
+                  productSpecification:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      '@type':
+                        type: string
+                  location:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      name:
+                        type: string
+                      '@type':
+                        type: string
+              productOffering:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+              '@type':
+                type: string
+        relatedParty:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              email:
+                type: string
+              phone:
+                type: string
+              '@type':
+                type: string
+              '@referredType':
+                type: string
       x-examples:
         example-1:
-          orderType: INSTALL
-          serviceType: DATA
-          stateCode: FL
-      title: Generate Order Reference
-      examples:
-        - orderType: string
-          serviceType: string
-          stateCode: string
+          externalId: NC1100000002
+          '@type': ProductOrder
+          orderDate: '2022-04-20T09:37:40.508Z'
+          requestedCompletionDate: '2021-05-02T08:13:59.506Z'
+          requestedStartDate: '2020-05-03T08:13:59.506Z'
+          AppointmentDate: '2022-04-26'
+          AppointmentWindow: '8:00AMto12:00PM'
+          note:
+            - text: Place holder to send Customer/Sales notes to order fulfillment
+          productOrderItem:
+            - id: '100'
+              action: add
+              product:
+                '@type': Product
+                productCharacteristic:
+                  - name: Speed
+                    value: 200M
+                productSpecification:
+                  id: Spec-a123-1232
+                  '@type': ProductSpecificationRef
+                location:
+                  id: '106790'
+                  name: '402 Sir Walter Raleigh St, Manteo, NC 27954, USA'
+                  '@type': location
+              productOffering:
+                id: Offer-a123-1232
+                name: Internet Service 200M
+              '@type': ProductOrderItem
+          relatedParty:
+            - id: AA2220001
+              name: John Doe
+              email: abc1@customer.com
+              phone: 111-111-4567
+              '@type': RelatedParty
+              '@referredType': Consumer
