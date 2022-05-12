@@ -94,6 +94,8 @@ components:
           longitude: '-75.679993'
           brightSpeedFiberIndicator: Qualified
           interval: +1 day
+          existingService: false
+          pendingOrder: false
       properties:
         addressLine1:
           type: string
