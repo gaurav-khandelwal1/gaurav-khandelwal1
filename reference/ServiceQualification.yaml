@@ -33,16 +33,20 @@ paths:
                     longitude: '-75.679993'
                     brightSpeedFiberIndicator: Qualified
                     interval: +1 day
+                    existingService: false
+                    pendingOrder: false
                 InValidAddress:
                   value:
                     errorCode: 3003
                     errorText: Invalid Address
-                    fullAddress: 940 FIRST ST MANTEO NC 27954
-                    addressId: 40b73544650ab176bad928638e341ed2
-                    latitude: '35.91777'
-                    longitude: '-75.679993'
-                    brightSpeedFiberIndicator: Qualified
-                    interval: +1 day
+                    fullAddress: ''
+                    addressId: ''
+                    latitude: ''
+                    longitude: ''
+                    brightSpeedFiberIndicator: Not Qualified
+                    interval: ''
+                    existingService: false
+                    pendingOrder: false
                 ExistingService:
                   value:
                     errorCode: 3001
@@ -53,16 +57,8 @@ paths:
                     longitude: '-75.679993'
                     brightSpeedFiberIndicator: Qualified
                     interval: +1 day
-                ExistingInactiveService:
-                  value:
-                    errorCode: 3002
-                    errorText: Service is available but Inactive
-                    fullAddress: 910 FIRST ST Manteo NC 27954
-                    addressId: null
-                    latitude: null
-                    longitude: null
-                    brightSpeedFiberIndicator: Not available
-                    interval: ''
+                    existingService: true
+                    pendingOrder: false
         '201':
           description: Created
         '400':
