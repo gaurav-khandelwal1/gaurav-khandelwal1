@@ -82,11 +82,31 @@ paths:
 components:
   schemas:
     User:
-      title: ServiceQualification
       type: object
-      description: Service Qualification query parameter
-      examples:
-        - errorCode: 0
+      properties:
+        errorCode:
+          type: integer
+        errorText:
+          type: string
+        fullAddress:
+          type: string
+        addressId:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        brightSpeedFiberIndicator:
+          type: string
+        interval:
+          type: string
+        existingService:
+          type: boolean
+        pendingOrder:
+          type: boolean
+      x-examples:
+        example-1:
+          errorCode: 0
           errorText: Success
           fullAddress: 940 FIRST ST MANTEO NC 27954
           addressId: 40b73544650ab176bad928638e341ed2
@@ -96,6 +116,3 @@ components:
           interval: +1 day
           existingService: false
           pendingOrder: false
-      properties:
-        addressLine1:
-          type: string
