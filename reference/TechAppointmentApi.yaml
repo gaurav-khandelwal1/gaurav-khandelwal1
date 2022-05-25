@@ -72,6 +72,28 @@ paths:
                     resourcePreferenceId: []
                     messageType: success
                     message: Records Created Successfully
+              examples:
+                CreateSlot:
+                  value:
+                    workOrderId: 0WO8C000000H4XvWAK
+                    serviceAppointments:
+                      - worktypeName: GPON Install
+                        status: Unscheduled
+                        serviceTerritoryName: Adamsville TN
+                        serviceAppointmentId: 08p8C000000H2riQAC
+                        isSplitHorizon: false
+                        earliestStartTime: '2022-04-01T14:00:00.000Z'
+                        dueDate: '2022-04-24T04:20:00.000Z'
+                      - worktypeName: GPON Install
+                        status: Unscheduled
+                        serviceTerritoryName: Adamsville TN
+                        serviceAppointmentId: 08p8C000000H2rjQAC
+                        isSplitHorizon: true
+                        earliestStartTime: '2022-04-01T14:00:00.000Z'
+                        dueDate: '2022-04-04T04:00:00.000Z'
+                    resourcePreferenceId: []
+                    messageType: success
+                    message: Records Created Successfully
       requestBody:
         content:
           application/json:
@@ -175,28 +197,39 @@ paths:
             examples:
               Create Slot:
                 value:
-                  workOrderId: 0WO8C000000H4XvWAK
-                  serviceAppointments:
-                    - worktypeName: GPON Install
-                      status: Unscheduled
-                      serviceTerritoryName: Adamsville TN
-                      serviceAppointmentId: 08p8C000000H2riQAC
-                      isSplitHorizon: false
-                      earliestStartTime: '2022-04-01T14:00:00.000Z'
-                      dueDate: '2022-04-24T04:20:00.000Z'
-                    - worktypeName: GPON Install
-                      status: Unscheduled
-                      serviceTerritoryName: Adamsville TN
-                      serviceAppointmentId: 08p8C000000H2rjQAC
-                      isSplitHorizon: true
-                      earliestStartTime: '2022-04-01T14:00:00.000Z'
-                      dueDate: '2022-04-04T04:00:00.000Z'
-                  resourcePreferenceId: []
-                  messageType: success
-                  message: Records Created Successfully
+                  workOrder:
+                    workTypeName: GPON Install
+                    serviceTerritoryName: Adamsville TN
+                    recordTypeName: ODE Install
+                    DC_Appointment_Priority: 2
+                    duration: 9
+                    durationType: Hours
+                    latitude: 35.2359
+                    longitude: -88.3906
+                    DC_WO_External_Id__c: yanxxx0001
+                    DC_Dispatch_Call_Id__c: y7y77yyu
+                    street: 8th cross
+                    address2: mysore
+                    city: bangalore
+                    postalcode: '560038'
+                    state: Karnataka
+                    country: India
+                    taskType: Type of Task
+                    taskTypeDescription: Description of the task type
+                    DC_Property_ID__c: DC_Property_ID__c
+                    DC_Data_Enrichment_Status__c: None
+                  serviceAppointment:
+                    earliestStartTime: '2022-04-01 07:00:00'
+                    dueDate: '2022-04-23 21:20:00'
+                    ServiceTerritoryName: Adamsville TN
+                    Status: Unscheduled
+                    latitude: 35.2359
+                    longitude: -88.3906
+                    duration: 9
+                    durationType: Hours
   /confirmslot:
     post:
-      summary: Create New User
+      summary: Confirm Slot
       operationId: post-user
       responses:
         '200':
@@ -206,15 +239,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
               examples:
-                New User Bob Fellow:
+                confirmslot:
                   value:
-                    id: 12
-                    firstName: Bob
-                    lastName: Fellow
-                    email: bob.fellow@gmail.com
-                    dateOfBirth: '1996-08-24'
-                    emailVerified: false
-                    createDate: '2020-11-18'
+                    compositeResponse:
+                      - body: null
+                        httpHeaders: {}
+                        httpStatusCode: 204
+                        referenceId: reference_sa
         '400':
           description: Missing Required Information
         '409':
@@ -291,13 +322,18 @@ paths:
             examples:
               ConfirmSlot:
                 value:
-                  compositeResponse:
-                    - body: null
-                      httpHeaders: {}
-                      httpStatusCode: 204
+                  allOrNone: true
+                  collateSubrequests: false
+                  compositeRequest:
+                    - body:
+                        Status: Unscheduled
+                        ArrivalWindowStartTime: '2022-04-01T15:00:00.000+0000'
+                        ArrivalWindowEndTime: '2022-04-02T00:00:00.000+0000'
+                      method: PATCH
                       referenceId: reference_sa
+                      url: /services/data/v50.0/sobjects/ServiceAppointment/08p8C000000H2riQAC
         description: Post the necessary fields for the API to create a new user.
-      description: Create a new user.
+      description: This api is used to confirm the slot selected by user.
     parameters: []
 components:
   schemas:
