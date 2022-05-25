@@ -77,8 +77,6 @@ paths:
             type: string
           in: header
           name: Authorization
-  '':
-    parameters: []
 components:
   schemas:
     User:
