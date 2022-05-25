@@ -12,7 +12,7 @@ paths:
     parameters: []
     post:
       summary: ''
-      operationId: post-createappointment
+      operationId: post-CreateAppointment
       responses:
         '200':
           description: OK
