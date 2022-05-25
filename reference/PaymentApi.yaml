@@ -35,20 +35,20 @@ paths:
             schema:
               type: object
               properties:
-                externalId:
-                  type: string
-                '@type':
-                  type: string
                 orderDate:
                   type: string
                 requestedCompletionDate:
                   type: string
                 requestedStartDate:
                   type: string
-                AppointmentDate:
+                appointmentDate:
                   type: string
-                AppointmentWindow:
+                appointmentWindow:
                   type: string
+                paymentAuthorizationId:
+                  type: string
+                contractTerm:
+                  type: integer
                 note:
                   type: array
                   items:
@@ -68,8 +68,6 @@ paths:
                       product:
                         type: object
                         properties:
-                          '@type':
-                            type: string
                           productCharacteristic:
                             type: array
                             items:
@@ -93,14 +91,28 @@ paths:
                                 type: string
                               name:
                                 type: string
+                              addressLine:
+                                type: string
+                              city:
+                                type: string
+                              state:
+                                type: string
+                              zip:
+                                type: string
+                              country:
+                                type: string
                               '@type':
                                 type: string
+                          '@type':
+                            type: string
                       productOffering:
                         type: object
                         properties:
                           id:
                             type: string
                           name:
+                            type: string
+                          externalProductId:
                             type: string
                       '@type':
                         type: string
@@ -109,8 +121,6 @@ paths:
                   items:
                     type: object
                     properties:
-                      id:
-                        type: string
                       name:
                         type: string
                       email:
@@ -121,49 +131,95 @@ paths:
                         type: string
                       '@referredType':
                         type: string
+                '@type':
+                  type: string
               x-examples:
                 example-1:
-                  externalId: NC1100000002
-                  '@type': ProductOrder
-                  orderDate: '2022-04-20T09:37:40.508Z'
-                  requestedCompletionDate: '2021-05-02T08:13:59.506Z'
-                  requestedStartDate: '2020-05-03T08:13:59.506Z'
-                  AppointmentDate: '2022-04-26'
-                  AppointmentWindow: '8:00AMto12:00PM'
+                  orderDate: '2022-05-24T09:37:40.508Z'
+                  requestedCompletionDate: '2022-05-30T08:13:59.506Z'
+                  requestedStartDate: '2022-05-30T08:13:59.506Z'
+                  appointmentDate: '2022-05-30'
+                  appointmentWindow: '8:00AM to 12:00PM'
+                  paymentAuthorizationId: 8ac6861c80efe0d50180f2d1a5244475
+                  contractTerm: 12
                   note:
                     - text: Place holder to send Customer/Sales notes to order fulfillment
                   productOrderItem:
                     - id: '100'
                       action: add
                       product:
-                        '@type': Product
                         productCharacteristic:
                           - name: Speed
                             value: 200M
                         productSpecification:
-                          id: Spec-a123-1232
+                          id: Bandwidth
                           '@type': ProductSpecificationRef
                         location:
-                          id: '106790'
-                          name: '402 Sir Walter Raleigh St, Manteo, NC 27954, USA'
+                          id: '106789'
+                          name: '404 Sir Walter Raleigh St, Manteo, NC 27954, USA'
+                          addressLine: 404 Sir Walter Raleigh St
+                          city: Manteo
+                          state: NC
+                          zip: '27954'
+                          country: USA
                           '@type': location
+                        '@type': Product
                       productOffering:
-                        id: Offer-a123-1232
+                        id: Internet_Service_200M_V0
                         name: Internet Service 200M
+                        externalProductId: 8ac6881f80cd1d160180ce36ca44407c
                       '@type': ProductOrderItem
                   relatedParty:
-                    - id: AA2220001
-                      name: John Doe
-                      email: abc1@customer.com
+                    - name: John Smith
+                      email: jose.john@customer.com
                       phone: 111-111-4567
                       '@type': RelatedParty
                       '@referredType': Consumer
+                  '@type': ProductOrder
             examples:
-              example-1:
+              submitOrderRequest:
                 value:
-                  orderType: string
-                  serviceType: string
-                  stateCode: string
+                  orderDate: '2022-05-24T09:37:40.508Z'
+                  requestedCompletionDate: '2022-05-30T08:13:59.506Z'
+                  requestedStartDate: '2022-05-30T08:13:59.506Z'
+                  appointmentDate: '2022-05-30'
+                  appointmentWindow: '8:00AM to 12:00PM'
+                  paymentAuthorizationId: 8ac6861c80efe0d50180f2d1a5244475
+                  contractTerm: 12
+                  note:
+                    - text: Place holder to send Customer/Sales notes to order fulfillment
+                  productOrderItem:
+                    - id: '100'
+                      action: add
+                      product:
+                        productCharacteristic:
+                          - name: Speed
+                            value: 200M
+                        productSpecification:
+                          id: Bandwidth
+                          '@type': ProductSpecificationRef
+                        location:
+                          id: '106789'
+                          name: '404 Sir Walter Raleigh St, Manteo, NC 27954, USA'
+                          addressLine: 404 Sir Walter Raleigh St
+                          city: Manteo
+                          state: NC
+                          zip: '27954'
+                          country: USA
+                          '@type': location
+                        '@type': Product
+                      productOffering:
+                        id: Internet_Service_200M_V0
+                        name: Internet Service 200M
+                        externalProductId: 8ac6881f80cd1d160180ce36ca44407c
+                      '@type': ProductOrderItem
+                  relatedParty:
+                    - name: John Smith
+                      email: jose.john@customer.com
+                      phone: 111-111-4567
+                      '@type': RelatedParty
+                      '@referredType': Consumer
+                  '@type': ProductOrder
       description: This API is used to generate Order refernce number
 components:
   schemas:
