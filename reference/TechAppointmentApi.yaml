@@ -172,6 +172,28 @@ paths:
                     longitude: -88.3906
                     duration: 9
                     durationType: Hours
+            examples:
+              Create Slot:
+                value:
+                  workOrderId: 0WO8C000000H4XvWAK
+                  serviceAppointments:
+                    - worktypeName: GPON Install
+                      status: Unscheduled
+                      serviceTerritoryName: Adamsville TN
+                      serviceAppointmentId: 08p8C000000H2riQAC
+                      isSplitHorizon: false
+                      earliestStartTime: '2022-04-01T14:00:00.000Z'
+                      dueDate: '2022-04-24T04:20:00.000Z'
+                    - worktypeName: GPON Install
+                      status: Unscheduled
+                      serviceTerritoryName: Adamsville TN
+                      serviceAppointmentId: 08p8C000000H2rjQAC
+                      isSplitHorizon: true
+                      earliestStartTime: '2022-04-01T14:00:00.000Z'
+                      dueDate: '2022-04-04T04:00:00.000Z'
+                  resourcePreferenceId: []
+                  messageType: success
+                  message: Records Created Successfully
   /confirmslot:
     post:
       summary: Create New User
@@ -267,12 +289,13 @@ paths:
                       referenceId: reference_sa
                       url: /services/data/v50.0/sobjects/ServiceAppointment/08p8C000000H2riQAC
             examples:
-              Create User Bob Fellow:
+              ConfirmSlot:
                 value:
-                  firstName: Bob
-                  lastName: Fellow
-                  email: bob.fellow@gmail.com
-                  dateOfBirth: '1996-08-24'
+                  compositeResponse:
+                    - body: null
+                      httpHeaders: {}
+                      httpStatusCode: 204
+                      referenceId: reference_sa
         description: Post the necessary fields for the API to create a new user.
       description: Create a new user.
     parameters: []
