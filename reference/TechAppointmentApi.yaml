@@ -53,14 +53,14 @@ paths:
                     messageType: success
                     message: success
                     data:
-                      - slotStart: '2022-04-01T09:00:00.000Z'
-                        slotEnd: '2022-04-01T11:00:00.000Z'
+                      - slotStart: '2022-06-03T09:00:00.000Z'
+                        slotEnd: '2022-06-03T11:00:00.000Z'
                         grade: 100
-                      - slotStart: '2022-04-04T11:00:00.000Z'
-                        slotEnd: '2022-04-04T13:00:00.000Z'
+                      - slotStart: '2022-06-03T11:00:00.000Z'
+                        slotEnd: '2022-06-03T13:00:00.000Z'
                         grade: 100
-                      - slotStart: '2022-04-01T13:00:00.000Z'
-                        slotEnd: '2022-04-01T15:00:00.000Z'
+                      - slotStart: '2022-06-03T13:00:00.000Z'
+                        slotEnd: '2022-06-03T15:00:00.000Z'
                         grade: 100
       requestBody:
         content:
