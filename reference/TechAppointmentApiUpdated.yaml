@@ -306,17 +306,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                type: object
+                properties:
+                  compositeResponse:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        body:
+                          type: 'null'
+                        httpHeaders:
+                          type: object
+                          properties: {}
+                        httpStatusCode:
+                          type: integer
+                        referenceId:
+                          type: string
+                x-examples:
+                  example-1:
+                    compositeResponse:
+                      - body: null
+                        httpHeaders: {}
+                        httpStatusCode: 204
+                        referenceId: reference_sa
               examples:
-                New User Bob Fellow:
+                confirmSlotResponse:
                   value:
-                    id: 12
-                    firstName: Bob
-                    lastName: Fellow
-                    email: bob.fellow@gmail.com
-                    dateOfBirth: '1996-08-24'
-                    emailVerified: false
-                    createDate: '2020-11-18'
+                    compositeResponse:
+                      - body: null
+                        httpHeaders: {}
+                        httpStatusCode: 204
+                        referenceId: reference_sa
         '400':
           description: Missing Required Information
         '409':
