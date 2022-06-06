@@ -354,7 +354,7 @@ paths:
                     longitude: -88.3906
                     duration: 9
                     durationType: Hours
-  /user:
+  /confirmSlot:
     post:
       summary: Create New User
       operationId: post-user
@@ -379,35 +379,99 @@ paths:
           description: Missing Required Information
         '409':
           description: Email Already Taken
+        '':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  compositeResponse:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        body:
+                          type: 'null'
+                        httpHeaders:
+                          type: object
+                          properties: {}
+                        httpStatusCode:
+                          type: integer
+                        referenceId:
+                          type: string
+                x-examples:
+                  example-1:
+                    compositeResponse:
+                      - body: null
+                        httpHeaders: {}
+                        httpStatusCode: 204
+                        referenceId: reference_sa
+              examples:
+                confirmSlotResponse:
+                  value:
+                    compositeResponse:
+                      - body: null
+                        httpHeaders: {}
+                        httpStatusCode: 204
+                        referenceId: reference_sa
       requestBody:
         content:
           application/json:
             schema:
               type: object
               properties:
-                firstName:
-                  type: string
-                lastName:
-                  type: string
-                email:
-                  type: string
-                dateOfBirth:
-                  type: string
-                  format: date
-              required:
-                - firstName
-                - lastName
-                - email
-                - dateOfBirth
+                allOrNone:
+                  type: boolean
+                collateSubrequests:
+                  type: boolean
+                compositeRequest:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      body:
+                        type: object
+                        properties:
+                          Status:
+                            type: string
+                          ArrivalWindowStartTime:
+                            type: string
+                          ArrivalWindowEndTime:
+                            type: string
+                      method:
+                        type: string
+                      referenceId:
+                        type: string
+                      url:
+                        type: string
+              x-examples:
+                example-1:
+                  allOrNone: true
+                  collateSubrequests: false
+                  compositeRequest:
+                    - body:
+                        Status: Unscheduled
+                        ArrivalWindowStartTime: '2022-04-01T15:00:00.000+0000'
+                        ArrivalWindowEndTime: '2022-04-02T00:00:00.000+0000'
+                      method: PATCH
+                      referenceId: reference_sa
+                      url: /services/data/v50.0/sobjects/ServiceAppointment/08p8C000000H2riQAC
             examples:
-              Create User Bob Fellow:
+              ConfirmSlotRequest:
                 value:
-                  firstName: Bob
-                  lastName: Fellow
-                  email: bob.fellow@gmail.com
-                  dateOfBirth: '1996-08-24'
+                  allOrNone: true
+                  collateSubrequests: false
+                  compositeRequest:
+                    - body:
+                        Status: Unscheduled
+                        ArrivalWindowStartTime: '2022-04-01T15:00:00.000+0000'
+                        ArrivalWindowEndTime: '2022-04-02T00:00:00.000+0000'
+                      method: PATCH
+                      referenceId: reference_sa
+                      url: /services/data/v50.0/sobjects/ServiceAppointment/08p8C000000H2riQAC
         description: Post the necessary fields for the API to create a new user.
       description: Create a new user.
+    parameters: []
 components:
   schemas:
     User:
