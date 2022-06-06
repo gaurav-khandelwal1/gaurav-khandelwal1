@@ -9,85 +9,8 @@ servers:
 paths:
   /getappointmentslots/v1:
     parameters: []
-    get:
-      summary: Get User Info by User ID
-      tags: []
-      responses:
-        '200':
-          description: User Found
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  messageType:
-                    type: string
-                  message:
-                    type: string
-                  data:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        slotStart:
-                          type: string
-                        slotEnd:
-                          type: string
-                        grade:
-                          type: integer
-                x-examples:
-                  example-1:
-                    messageType: success
-                    message: success
-                    data:
-                      - slotStart: '2022-04-01T15:00:00.000Z'
-                        slotEnd: '2022-04-02T00:00:00.000Z'
-                        grade: 100
-                      - slotStart: '2022-04-04T15:00:00.000Z'
-                        slotEnd: '2022-04-05T00:00:00.000Z'
-                        grade: 100
-              examples:
-                getappointmentslotsResponse:
-                  value:
-                    messageType: success
-                    message: success
-                    data:
-                      - slotStart: '2022-04-01T15:00:00.000Z'
-                        slotEnd: '2022-04-02T00:00:00.000Z'
-                        grade: 100
-                      - slotStart: '2022-04-04T15:00:00.000Z'
-                        slotEnd: '2022-04-05T00:00:00.000Z'
-                        grade: 100
-        '404':
-          description: User Not Found
-      operationId: get-users-userId
-      description: Retrieve the information of the user with the matching user ID.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                serviceAppointmentId:
-                  type: string
-                operatingHours:
-                  type: string
-                schedulingPolicyName:
-                  type: string
-              x-examples:
-                example-1:
-                  serviceAppointmentId: 08p8C000000H2riQAC
-                  operatingHours: Tennessee
-                  schedulingPolicyName: ODE AB Standard
-            examples:
-              getappointmentslotsRequest:
-                value:
-                  serviceAppointmentId: 08p8C000000H2riQAC
-                  operatingHours: Tennessee
-                  schedulingPolicyName: ODE AB Standard
-        description: ''
     post:
-      summary: ''
+      summary: getappointmentslots
       operationId: post-createAppointment
       responses:
         '200':
@@ -298,7 +221,7 @@ paths:
                     durationType: Hours
   /confirmSlot:
     post:
-      summary: Create New User
+      summary: confirmSlot
       operationId: post-user
       responses:
         '200':
@@ -435,13 +358,8 @@ paths:
       description: Create a new user.
     parameters: []
   /getappointmentslots:
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
-      operationId: get-getappointmentslots
     post:
-      summary: ''
+      summary: getappointmentslots
       operationId: post-getappointmentslots
       responses:
         '200':
