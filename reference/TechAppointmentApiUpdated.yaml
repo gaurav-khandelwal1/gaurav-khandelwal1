@@ -211,13 +211,6 @@ paths:
                         isSplitHorizon: false
                         earliestStartTime: '2022-04-01T14:00:00.000Z'
                         dueDate: '2022-04-24T04:20:00.000Z'
-                      - worktypeName: GPON Install
-                        status: Unscheduled
-                        serviceTerritoryName: Adamsville TN
-                        serviceAppointmentId: 08p8C000000H2rjQAC
-                        isSplitHorizon: true
-                        earliestStartTime: '2022-04-01T14:00:00.000Z'
-                        dueDate: '2022-04-04T04:00:00.000Z'
                     resourcePreferenceId: []
                     messageType: success
                     message: Records Created Successfully
