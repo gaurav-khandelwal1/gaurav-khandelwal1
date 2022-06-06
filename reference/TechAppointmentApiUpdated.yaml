@@ -7,7 +7,7 @@ info:
 servers:
   - url: 'http://localhost:3000'
 paths:
-  /createAppointment:
+  /getappointmentslots/v1:
     parameters: []
     get:
       summary: Get User Info by User ID
@@ -18,21 +18,74 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                type: object
+                properties:
+                  messageType:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        slotStart:
+                          type: string
+                        slotEnd:
+                          type: string
+                        grade:
+                          type: integer
+                x-examples:
+                  example-1:
+                    messageType: success
+                    message: success
+                    data:
+                      - slotStart: '2022-04-01T15:00:00.000Z'
+                        slotEnd: '2022-04-02T00:00:00.000Z'
+                        grade: 100
+                      - slotStart: '2022-04-04T15:00:00.000Z'
+                        slotEnd: '2022-04-05T00:00:00.000Z'
+                        grade: 100
               examples:
-                Get User Alice Smith:
+                getappointmentslotsResponse:
                   value:
-                    id: 142
-                    firstName: Alice
-                    lastName: Smith
-                    email: alice.smith@gmail.com
-                    dateOfBirth: '1997-10-31'
-                    emailVerified: true
-                    signUpDate: '2019-08-24'
+                    messageType: success
+                    message: success
+                    data:
+                      - slotStart: '2022-04-01T15:00:00.000Z'
+                        slotEnd: '2022-04-02T00:00:00.000Z'
+                        grade: 100
+                      - slotStart: '2022-04-04T15:00:00.000Z'
+                        slotEnd: '2022-04-05T00:00:00.000Z'
+                        grade: 100
         '404':
           description: User Not Found
       operationId: get-users-userId
       description: Retrieve the information of the user with the matching user ID.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                serviceAppointmentId:
+                  type: string
+                operatingHours:
+                  type: string
+                schedulingPolicyName:
+                  type: string
+              x-examples:
+                example-1:
+                  serviceAppointmentId: 08p8C000000H2riQAC
+                  operatingHours: Tennessee
+                  schedulingPolicyName: ODE AB Standard
+            examples:
+              getappointmentslotsRequest:
+                value:
+                  serviceAppointmentId: 08p8C000000H2riQAC
+                  operatingHours: Tennessee
+                  schedulingPolicyName: ODE AB Standard
+        description: ''
     patch:
       summary: Update User Information
       operationId: patch-users-userId
@@ -64,19 +117,18 @@ paths:
             schema:
               type: object
               properties:
-                firstName:
+                serviceAppointmentId:
                   type: string
-                lastName:
+                operatingHours:
                   type: string
-                email:
+                schedulingPolicyName:
                   type: string
-                  description: 'If a new email is given, the user''s email verified property will be set to false.'
-                dateOfBirth:
-                  type: string
+              x-examples:
+                example-1:
+                  serviceAppointmentId: 08p8C000000H2riQAC
+                  operatingHours: Tennessee
+                  schedulingPolicyName: ODE AB Standard
             examples:
-              Update First Name:
-                value:
-                  firstName: Rebecca
               Update Email:
                 value:
                   email: rebecca@gmail.com
