@@ -7,7 +7,7 @@ info:
 servers:
   - url: 'http://localhost:3000'
 paths:
-  /getappointmentslots/v1:
+  /createAppointment/v1:
     parameters: []
     post:
       summary: createAppointment
@@ -86,6 +86,12 @@ paths:
                     resourcePreferenceId: []
                     messageType: success
                     message: Records Created Successfully
+        '':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
       requestBody:
         content:
           application/json:
