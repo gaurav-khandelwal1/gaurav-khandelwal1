@@ -10,7 +10,7 @@ paths:
   /getappointmentslots/v1:
     parameters: []
     post:
-      summary: getappointmentslots
+      summary: createAppointment
       operationId: post-createAppointment
       responses:
         '200':
