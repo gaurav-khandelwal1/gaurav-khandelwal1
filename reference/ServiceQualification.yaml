@@ -25,25 +25,25 @@ paths:
               examples:
                 AddressQualified:
                   value:
-                    fullAddress: '123'
-                    addressId: null
-                    latitude: null
-                    longitude: null
-                    brightSpeedFiberIndicator: NOT AVAILABLE
-                    interval: ' '
+                    fullAddress: '404 Sir Walker Ln Cary, NC, 27519'
+                    addressId: '13579'
+                    latitude: '35.906269'
+                    longitude: '-75.671181'
+                    brightSpeedFiberIndicator: QUALIFIED
+                    interval: +1 day
                     existingService: false
                     pendingOrder: false
-                    streetNumber: null
-                    streetName: null
-                    streetSuffix: null
-                    postalCode: null
-                    city: null
-                    state: null
-                    country: null
-                    addressSqft: null
-                    bedrooms: null
-                    errorCode: '3004'
-                    errorText: Not Available
+                    streetNumber: ''
+                    streetName: SIR WALKER LN
+                    streetSuffix: LN
+                    postalCode: '27519'
+                    city: CARY
+                    state: NC
+                    country: USA
+                    addressSqft: '1938.0'
+                    bedrooms: '3.0'
+                    errorCode: '0'
+                    errorText: Success
                     content:
                       header:
                         url: 'https://images.contentstack.io/v3/assets/bltae235e99a6dd6f85/blt68ad193519f2d750/629e33e2b86a794d785d52f3/Brightspeed_Logo_Full.png'
