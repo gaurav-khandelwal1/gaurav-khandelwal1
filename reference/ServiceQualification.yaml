@@ -25,16 +25,82 @@ paths:
               examples:
                 AddressQualified:
                   value:
-                    errorCode: 0
-                    errorText: Success
-                    fullAddress: 940 FIRST ST MANTEO NC 27954
-                    addressId: 40b73544650ab176bad928638e341ed2
-                    latitude: '35.91777'
-                    longitude: '-75.679993'
-                    brightSpeedFiberIndicator: Qualified
-                    interval: +1 day
+                    fullAddress: '123'
+                    addressId: null
+                    latitude: null
+                    longitude: null
+                    brightSpeedFiberIndicator: NOT AVAILABLE
+                    interval: ' '
                     existingService: false
                     pendingOrder: false
+                    streetNumber: null
+                    streetName: null
+                    streetSuffix: null
+                    postalCode: null
+                    city: null
+                    state: null
+                    country: null
+                    addressSqft: null
+                    bedrooms: null
+                    errorCode: '3004'
+                    errorText: Not Available
+                    content:
+                      header:
+                        url: 'https://images.contentstack.io/v3/assets/bltae235e99a6dd6f85/blt68ad193519f2d750/629e33e2b86a794d785d52f3/Brightspeed_Logo_Full.png'
+                      footer:
+                        legal_menu:
+                          form_buttons:
+                            - button_label: Legal Notice
+                              _metadata:
+                                uid: cs098cb4418d294fc6
+                              button_theme: Link
+                              url: 'https://brspd-dev.brightspeed.com/about-us'
+                              open_in_new_tab: true
+                            - button_label: Privacy policy
+                              _metadata:
+                                uid: cs102d67b38c8afcd9
+                              button_theme: Link
+                              url: /about-us
+                              open_in_new_tab: true
+                            - button_label: Cookie Settings
+                              _metadata:
+                                uid: cs60e331f0aa65102e
+                              button_theme: Link
+                              url: /about-us
+                              open_in_new_tab: true
+                        logo:
+                          url: 'https://images.contentstack.io/v3/assets/bltae235e99a6dd6f85/blt68ad193519f2d750/629e33e2b86a794d785d52f3/Brightspeed_Logo_Full.png'
+                        social_menu:
+                          - icon:
+                              url: 'https://images.contentstack.io/v3/assets/bltae235e99a6dd6f85/blt5cddfeefabc4ef08/62a0c0bdce3d8856b19f887c/Twitter.png'
+                            url: 'https://twitter.com/brightspeed'
+                          - icon:
+                              url: 'https://images.contentstack.io/v3/assets/bltae235e99a6dd6f85/blt8b4b67eed5035117/62a0c0e91944ac5ac425eac7/Facebook.png'
+                            url: 'https://www.facebook.com/brightspeed'
+                          - icon:
+                              url: 'https://images.contentstack.io/v3/assets/bltae235e99a6dd6f85/blt69e3ed12c805f2b4/62a0c0fa44e495573d55ff8a/LinkedIn.png'
+                            url: 'https://www.linkedin.com/brightspeed'
+                      content:
+                        availability_form:
+                          heading: How fast do you want to go ?
+                          checkbox: ACP (Affordable Connectivity Program)
+                          input_field: Street Address
+                          subheading: Enter your address to check availability
+                        form_button:
+                          form_buttons:
+                            - button_label: Back
+                              _metadata:
+                                uid: cscca27a35022d60a1
+                              button_theme: Black
+                              url: /
+                              open_in_new_tab: false
+                            - button_label: Continue
+                              _metadata:
+                                uid: csbfb5118dab6bcda2
+                              button_theme: Yellow
+                              url: /voip-products
+                              open_in_new_tab: false
+                        headline: How fast do you want to go ?
                 InValidAddress:
                   value:
                     errorCode: 3003
